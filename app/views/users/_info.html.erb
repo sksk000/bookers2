@@ -1,1 +1,16 @@
 <h1>User info</h1>
+
+<% if current_user.image.attached? %>
+  <%= image_tag User.image, size: "300x300" %>
+<% else %>
+  <%= image_tag "no_image", size: "300x300" %>
+<% end %>
+
+
+<p>name</p>
+<%= current_user.name %>
+
+<p>introduction</p>
+<%= current_user.introduction %>
+
+<%= link_to "プロフィール編集", root_path %>
