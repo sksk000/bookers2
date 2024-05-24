@@ -7,10 +7,18 @@
 <% end %>
 
 
-<p>name</p>
-<%= current_user.name %>
-
-<p>introduction</p>
-<%= current_user.introduction %>
-
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">name</th>
+      <th scope="col">introduction</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= current_user.name %></td>
+      <td><%= current_user.introduction %></td>
+    </tr>
+  </tbody>
+</table>
 <%= link_to "プロフィール編集", edit_user_path(current_user.id) %>
