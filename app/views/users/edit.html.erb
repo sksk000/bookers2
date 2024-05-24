@@ -1,0 +1,14 @@
+<h2>User info</h2>
+
+<%= form_with model: @user do |u| %>
+  <h4>Name</4>
+  <%= u.text_field :name %>
+
+  <h4>Image</h4>
+  <%= u.file_field :image, placeholder: "プロフィール画像", accept: "image/*" %>
+
+  <h4>Introduction</h4>
+  <%= u.text_field :introduction %>
+
+  <%= u.submit "Update User"%>
+<% end %>
