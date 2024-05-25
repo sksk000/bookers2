@@ -13,6 +13,9 @@ class UsersController < ApplicationController
     redirect_to user_path(@user.id)
   end
 
+  def index
+    @user = User.all;
+  end
 
 
   def user_params

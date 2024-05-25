@@ -14,10 +14,12 @@
               </tr>
             </thead>
             <tbody>
+              <% @user.books.each do |data| %>
                 <tr>
-                  <td>xxxxx</td>
-                  <td>xxxxx</td>
+                  <td><%= data.title %></td>
+                  <td><%= data.body %></td>
                 </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
