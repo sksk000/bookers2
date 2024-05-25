@@ -16,7 +16,7 @@
             <tbody>
               <% @book.each do |data| %>
                 <tr>
-                  <td><%= link_to data.title, book_path(data.user_id)%></td>
+                  <td><%= link_to data.title, book_path(data.id)%></td>
                   <td><%= data.body %></td>
                 </tr>
               <% end %>
