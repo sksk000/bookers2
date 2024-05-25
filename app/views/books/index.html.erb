@@ -14,10 +14,12 @@
               </tr>
             </thead>
             <tbody>
+              <% @book.each do |data| %>
                 <tr>
-                  <td>xxxxx</td>
-                  <td>xxxxx</td>
+                  <td><%= link_to data.title, book_path(data.user_id)%></td>
+                  <td><%= data.body %></td>
                 </tr>
+              <% end %>
             </tbody>
           </table>
         </div>

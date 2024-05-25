@@ -1,0 +1,11 @@
+<h2>Editing Book</h2>
+
+<%= form_with model: @book do |b| %>
+  <h4>Title</4>
+  <%= b.text_field :title %>
+
+  <h4>Opinion</h4>
+  <%= b.text_field :body %>
+
+  <%= b.submit "Update book"%>
+<% end %>
