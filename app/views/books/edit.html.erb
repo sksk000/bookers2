@@ -8,4 +8,7 @@
   <%= b.text_field :body %>
 
   <%= b.submit "Update book"%>
+  <%= link_to "Show", book_path(@book.id) %>
+  |
+  <%= link_to "Back", books_path %>
 <% end %>
