@@ -6,6 +6,8 @@
         </div>
         <div class="col-md-8">
           <h2>Book detail</h2>
+          <%= image_tag @book.user.image, size: "100x100" %>
+          <%= @book.user.name %>
           <%= link_to @book.title, book_path(@book.id)%>
           <%= @book.body %>
           <% if current_user.id == @book.user_id %>

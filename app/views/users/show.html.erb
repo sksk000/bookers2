@@ -9,6 +9,7 @@
           <table class="table">
             <thead>
               <tr>
+                <th score="col"></th>
                 <th scope="col">Title</th>
                 <th scope="col">Opinion</th>
               </tr>
@@ -16,7 +17,8 @@
             <tbody>
               <% @user.books.each do |data| %>
                 <tr>
-                  <td><%= data.title %></td>
+                  <td><%= image_tag data.user.image, size: "100x100" %></td>
+                  <td><%= link_to data.title, book_path(data.id)%></td>
                   <td><%= data.body %></td>
                 </tr>
               <% end %>
