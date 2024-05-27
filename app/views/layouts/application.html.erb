@@ -24,7 +24,7 @@
         <%= link_to 'Log in', new_user_session_path %>
       <% end %>
    </header>
-    <%= flash[:notice] %>
+    <p class="notice"><%= notice %></p>
     <%= yield %>
   </body>
 
