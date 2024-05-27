@@ -1,12 +1,10 @@
 <h1>User info</h1>
 
-<% if current_user.image.attached? %>
-  <%= image_tag current_user.image, size: "300x300" %>
+<%if user.image.attached? %>
+  <%= image_tag user.image, size: "300x300" %>
 <% else %>
   <%= image_tag "no_image", size: "300x300" %>
 <% end %>
-
-
 <table class="table">
   <thead>
     <tr>
@@ -16,9 +14,9 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= current_user.name %></td>
-      <td><%= current_user.introduction %></td>
+      <td><%= user.name %></td>
+      <td><%= user.introduction %></td>
     </tr>
   </tbody>
 </table>
-<%= link_to "プロフィール編集", edit_user_path(current_user.id) %>
+<%= link_to "プロフィール編集", edit_user_path(user.id) %>
