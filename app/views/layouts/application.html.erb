@@ -25,6 +25,14 @@
       <% end %>
    </header>
     <p class="notice"><%= notice %></p>
+    <% if flash[:error].present? %>
+      <%= flash[:error].length %>errors prohibited this obj from being saved:
+    <ul>
+      <% flash[:error].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+    <% end %>
     <%= yield %>
   </body>
 
