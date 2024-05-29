@@ -13,7 +13,7 @@ class BooksController < ApplicationController
             redirect_to books_path
         else
             flash[:error] = @book.errors.full_messages
-            redirect_to request.fullpath
+            redirect_to request.path
         end
     end
 
@@ -41,7 +41,7 @@ class BooksController < ApplicationController
             flash[:notice] = "You have updated book successfully."
             redirect_to book_path(@book.id)
         else
-            #flash[:error] = @book.errors.full_messages
+            flash[:book_edit_error] = @book.errors.full_messages
             render "edit"
         end
     end

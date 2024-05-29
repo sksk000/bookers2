@@ -1,5 +1,12 @@
 <h2>Editing Book</h2>
-
+<% if flash[:book_edit_error].present? %>
+      <%= flash[:book_edit_error].length %>errors prohibited this obj from being saved:
+    <ul>
+      <% flash[:book_edit_error].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+<% end %>
 <%= form_with model: @book do |b| %>
   <h4>Title</4>
   <%= b.text_field :title %>

@@ -10,10 +10,6 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
-  def set_errors(messages)
-    @errors = messages
-  end
-
   protected
 
   def configure_permitted_parameters
