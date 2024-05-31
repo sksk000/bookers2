@@ -17,7 +17,11 @@
             <tbody>
               <% @user.books.each do |data| %>
                 <tr>
-                  <td><%= image_tag data.user.image, size: "100x100" %></td>
+                 <%if data.user.profile_image.attached? %>
+                    <td><%= image_tag data.user.profile_image, size: "150x150" %></td>
+                <% else %>
+                    <td><%= image_tag "no_image", size: "150x150" %></td>
+                <% end %>
                   <td><%= link_to data.title, book_path(data.id)%></td>
                   <td><%= data.body %></td>
                 </tr>

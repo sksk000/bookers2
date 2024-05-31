@@ -16,8 +16,8 @@
             <tbody>
               <% @user.each do |data| %>
                 <tr>
-                  <% if data.image.attached? %>
-                    <td><%= image_tag data.image, size: "100x100" %></td>
+                  <% if data.profile_image.attached? %>
+                    <td><%= image_tag data.profile_image, size: "100x100" %></td>
                   <% else %>
                     <td><%= image_tag "no_image", size: "100x100" %></td>
                   <% end %>
