@@ -1,22 +1,24 @@
 <h1>User info</h1>
 
 <%if user.image.attached? %>
-  <%= image_tag user.image, size: "300x300" %>
+  <%= image_tag user.image, size: "150x150" %>
 <% else %>
-  <%= image_tag "no_image", size: "300x300" %>
+  <%= image_tag "no_image", size: "150x150" %>
 <% end %>
 <table class="table">
   <thead>
     <tr>
       <th scope="col">name</th>
-      <th scope="col">introduction</th>
+      <th scope="col"><%= user.name %></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><%= user.name %></td>
+      <td>introduction</td>
       <td><%= user.introduction %></td>
     </tr>
   </tbody>
 </table>
-<%= link_to "プロフィール編集", edit_user_path(user.id) %>
+<%= link_to edit_user_path(user.id), class:"btn btn-outline-dark btn-block" do %>
+  <i class="fa-solid fa-user-gear"></i>
+<% end %>
