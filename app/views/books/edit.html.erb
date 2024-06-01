@@ -1,21 +1,34 @@
-<h2>Editing Book</h2>
-<% if flash[:book_edit_error].present? %>
-      <%= flash[:book_edit_error].length %>errors prohibited this obj from being saved:
-    <ul>
-      <% flash[:book_edit_error].each do |error| %>
-        <li><%= error %></li>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>Editing Book</h1>
+      <% if flash[:book_edit_error].present? %>
+        <%= flash[:book_edit_error].length %>errors prohibited this obj from being saved:
+        <ul>
+          <% flash[:book_edit_error].each do |error| %>
+          <li><%= error %></li>
       <% end %>
-    </ul>
-<% end %>
-<%= form_with model: @book do |b| %>
-  <h4>Title</4>
-  <%= b.text_field :title %>
+      </ul>
+      <% end %>
+      <%= form_with model: @book do |b| %>
 
-  <h4>Opinion</h4>
-  <%= b.text_field :body %>
+      <div class="form-group">
+        <label for="book_title">Title</label>
+        <%= b.text_field :title ,class:"form-control"%>
+      </div>
 
-  <%= b.submit "Update book"%>
-  <%= link_to "Show", book_path(@book.id) %>
-  |
-  <%= link_to "Back", books_path %>
-<% end %>
+      <div class="form-group">
+        <label for="book_body">Opnion</label>
+        <%= b.text_field :body ,class:"form-control"%>
+      </div>
+
+      <div class="form-group">
+        <%= b.submit "Update Book", class: "btn btn-success"%>
+      </div>
+      <%= link_to "Show", book_path(@book.id) %>
+      |
+      <%= link_to "Back", books_path %>
+      <% end %>
+    </div>
+  </div>
+</div>
