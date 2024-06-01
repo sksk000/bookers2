@@ -10,7 +10,7 @@ class BooksController < ApplicationController
 
         if @book.save
             flash[:notice] = "You have created book successfully.."
-            redirect_to books_path
+            redirect_to book_path(@book.id)
         else
             flash[:error] = @book.errors.full_messages
             redirect_to request.path
