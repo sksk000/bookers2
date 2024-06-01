@@ -18,9 +18,13 @@
               <% @user.books.each do |data| %>
                 <tr>
                  <%if data.user.profile_image.attached? %>
-                    <td><%= image_tag data.user.profile_image, size: "150x150" %></td>
+                    <td>
+                      <%= link_to image_tag(data.user.profile_image, size: "150x150"),user_path(data.id) %>
+                    </td>
                 <% else %>
-                    <td><%= image_tag "no_image", size: "150x150" %></td>
+                    <td>
+                      <%= link_to image_tag("no_image", size: "150x150"),user_path(data.id) %>
+                    </td>
                 <% end %>
                   <td><%= link_to data.title, book_path(data.id)%></td>
                   <td><%= data.body %></td>

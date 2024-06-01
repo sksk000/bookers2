@@ -6,18 +6,37 @@
         </div>
         <div class="col-md-8 offset-md-1">
           <h2>Book detail</h2>
-          <% if @book.user.profile_image.attached? %>
-            <%= image_tag @book.user.profile_image, size: "100x100" %>
-          <% else%>
-            <%= image_tag "no_image", size: "150x150" %>
-          <% end %>
-          <%= @book.user.name %>
-          <%= link_to @book.title, book_path(@book.id)%>
-          <%= @book.body %>
-          <% if current_user.id == @book.user_id %>
-            <%= link_to "Edit", edit_book_path(@book.id) %>
-            <%= link_to "Destroy","/books/#{@book.id}",method: :delete, "data-confirm" => "本当に削除しますか？" %>
-          <% end %>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>
+                  <% if @book.user.profile_image.attached? %>
+                    <%= link_to image_tag(@book.user.profile_image, size: "100x100"), user_path(@book.user_id) %>
+                  <% else%>
+                    <%= link_to image_tag("no_image", size: "150x150"), user_path(@book.user_id) %>
+                  <% end %>
+                  <div>
+                    <%= link_to @book.user.name, user_path(@book.user_id) %>
+                  </div>
+                </td>
+                <td>
+                  <%= link_to @book.title, book_path(@book.id)%>
+                </td>
+                <td>
+                  <%= @book.body %>
+                </td>
+                <td>
+                  <% if current_user.id == @book.user_id %>
+                    <%= link_to "Edit", edit_book_path(@book.id) %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if current_user.id == @book.user_id %>
+                    <%= link_to "Destroy","/books/#{@book.id}",method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                  <% end %>
+                </td>
+              </tr>
+          <table>
         </div>
     </div>
 </div>
