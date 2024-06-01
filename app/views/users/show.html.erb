@@ -19,11 +19,11 @@
                 <tr>
                  <%if data.user.profile_image.attached? %>
                     <td>
-                      <%= link_to image_tag(data.user.profile_image, size: "150x150"),user_path(data.id) %>
+                      <%= link_to image_tag(data.user.profile_image, size: "100x100"),user_path(data.id) %>
                     </td>
                 <% else %>
                     <td>
-                      <%= link_to image_tag("no_image", size: "150x150"),user_path(data.id) %>
+                      <%= link_to image_tag("no_image", size: "100x100"),user_path(data.id) %>
                     </td>
                 <% end %>
                   <td><%= link_to data.title, book_path(data.id)%></td>
